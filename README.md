@@ -14,8 +14,8 @@ Bienvenue dans le dépôt GitHub de mon **Espace Numérique de Travail (ENT)** !
 
 1. **Clonez le dépôt :**
    ```bash
-   git clone https://github.com/votre_nom/ent.git
-   cd ent
+   git clone https://github.com/DARTFRA/ENT-V2.git
+   cd ENT-V2
    ```
 
 2. **Installez les dépendances via Composer :**
