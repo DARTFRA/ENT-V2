@@ -1,0 +1,13 @@
+knpu_oauth2_client:
+    clients:
+        discord:
+            type: generic
+            client_id: '%env(DISCORD_CLIENT_ID)%'
+            client_secret: '%env(DISCORD_CLIENT_SECRET)%'
+            redirect_route: 'discord_callback'
+            provider_class: League\OAuth2\Client\Provider\GenericProvider
+            provider_options:
+                urlAuthorize: 'https://discord.com/api/oauth2/authorize'
+                urlAccessToken: 'https://discord.com/api/oauth2/token'
+                urlResourceOwnerDetails: 'https://discord.com/api/users/@me'
+                verify: false  # Désactive la vérification SSL en développement

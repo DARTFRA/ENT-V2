@@ -1,0 +1,25 @@
+{# templates/error/user_not_found.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateur non trouvé{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-danger text-white text-center">
+                    <h2>Utilisateur non trouvé</h2>
+                </div>
+                <div class="card-body text-center">
+                    <p class="lead">Nous n'avons pas pu trouver votre compte. Il est possible que vous ne soyez pas encore inscrit.</p>
+                    <p>Merci de vous inscrire sur le discord</p>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <small>Besoin d'aide ? Contactez notre support.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

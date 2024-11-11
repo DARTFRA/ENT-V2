@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sélection du Rôle{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4 mb-4">Sélectionnez votre rôle</h1>
+        <p class="lead">Choisissez un rôle pour continuer</p>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        {% if roles is not empty %}
+            <div class="col-md-6">
+                <div class="list-group">
+                    {% for role in roles %}
+                        <a href="{{ path('set_role', { role: role }) }}" class="list-group-item list-group-item-action btn btn-primary mb-2">
+                            {{ role | replace({'ROLE_': ''}) | capitalize }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-6 text-center">
+                <p class="text-muted">Aucun rôle disponible pour cet utilisateur.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

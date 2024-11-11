@@ -1,0 +1,42 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+services:
+    PdoSessionHandler:
+        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments:
+            - 'mysql:host=localhost;dbname=ent-sc'
+            - { db_username: 'root', db_password: '' }
+    App\Provider\DiscordProvider:
+        class: App\Provider\DiscordProvider
+        arguments:
+            - {
+                clientId: '%env(DISCORD_CLIENT_ID)%',
+                clientSecret: '%env(DISCORD_CLIENT_SECRET)%',
+                redirectUri: 'http://localhost:8000/discord/callback',
+                urlAuthorize: 'https://discord.com/api/oauth2/authorize',
+                urlAccessToken: 'https://discord.com/api/oauth2/token',
+                urlResourceOwnerDetails: 'https://discord.com/api/users/@me',
+                verify: false  # Désactiver la vérification SSL
+            }
+
+  
+
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours | Mon ENT{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center">Liste des Cours</h1>
+    <p class="text-center">Explore les différents cours disponibles dans ton ENT.</p>
+
+    <div class="row mt-5">
+        {% for course in courses %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course.title }}</h5>
+                        <p class="card-text">{{ course.description }}</p>
+                        <a href="#" class="btn btn-primary">Voir les détails</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

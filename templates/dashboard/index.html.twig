@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de Bord | Sacré Coeur{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1>Bienvenue, {{ username }}  !</h1>
+       {% if is_granted('ROLE_PROFESSEUR') %}
+            aa
+        {% endif %}
+        
+
+    <h1 class="text-center">Bienvenue sur le Tableau de Bord</h1>
+    <p class="lead text-center">Bienvenue dans ton Espace Numérique de Travail.</p>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mes Cours</h5>
+                    <p class="card-text">Accède aux informations et ressources pour chaque cours.</p>
+                    <a href="" class="btn btn-primary">Voir les cours</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Mes Notes</h5>
+                    <p class="card-text">Consulte tes notes et évaluations.</p>
+                    <a href="" class="btn btn-primary">Voir les notes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Messages</h5>
+                    <p class="card-text">Accède à ta messagerie pour échanger avec tes enseignants et camarades.</p>
+                    <a href="" class="btn btn-primary">Voir les messages</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
